@@ -1,5 +1,5 @@
 # code to count the number of ways we can climb n steps with the ability to either climb the steps by moving either
-# 1 step, 2 steps or 3 steps at a time
+# 1 step, 2 steps or 5 steps at a time
 
 
 step_counter_map = {}
@@ -15,9 +15,8 @@ def step_counter(n):
     elif n < 0:
         return 0
 
-    return_value = step_counter(n-1) + step_counter(n-2) + step_counter(n-3)
-    step_counter_map[n] = return_value
-    return return_value
+    step_counter_map[n] = step_counter(n-1) + step_counter(n-2) + step_counter(n-5)
+    return step_counter_map[n]
 
 
 if __name__ == '__main__':
